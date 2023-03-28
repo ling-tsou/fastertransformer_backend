@@ -83,8 +83,9 @@ ADD   https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64
 RUN   dpkg -i cuda-keyring_1.0-1_all.deb
 
 # Install pytorch
-RUN pip3 install torch==1.9.1+cu111 -f https://download.pytorch.org/whl/torch_stable.html  && \
-    pip3 install --extra-index-url https://pypi.ngc.nvidia.com regex fire ipywidgets tritonclient[all]
+RUN pip3 install torch==1.13.1+cu117 -f https://download.pytorch.org/whl/torch_stable.html  && \
+    pip3 install --extra-index-url https://pypi.ngc.nvidia.com regex fire ipywidgets tritonclient[all] && \
+    pip3 install jaxlib==0.3.10 jax==0.3.13 torch==4.26.1
 
 # for debug
 RUN apt-get update -q && \
